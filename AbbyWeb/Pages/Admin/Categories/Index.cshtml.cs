@@ -3,7 +3,7 @@ using Abby.Models.Model;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
-namespace AbbyWeb.Pages.Categories;
+namespace AbbyWeb.Pages.Admin.Categories;
 
 public class IndexModel : PageModel
 {

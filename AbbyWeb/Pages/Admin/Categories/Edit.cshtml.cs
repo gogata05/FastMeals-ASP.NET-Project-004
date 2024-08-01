@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 
-namespace AbbyWeb.Pages.Categories;
+namespace AbbyWeb.Pages.Admin.Categories;
 
 [BindProperties]
 public class EditModel : PageModel
