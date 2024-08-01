@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace AbbyWeb.Pages.Admin.FoodTypes;
 
 [BindProperties]
-public class EditModel : PageModel
+public class DeleteModel : PageModel
 {
     private readonly IUnitOfWork _unitOfWork;
 
     public FoodType FoodType { get; set; }
 
-    public EditModel(IUnitOfWork unitOfWork)
+    public DeleteModel(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
@@ -27,13 +27,16 @@ public class EditModel : PageModel
 
     public async Task<IActionResult> OnPost()
     {
-        if (ModelState.IsValid)
+        var foodTypeFromDb = _unitOfWork.FoodType.GetFirstOrDefault(u => u.Id == FoodType.Id);
+        if (foodTypeFromDb != null)
         {
-            _unitOfWork.FoodType.Update(FoodType);
+            _unitOfWork.FoodType.Remove(foodTypeFromDb);
             _unitOfWork.Save();
-            TempData["success"] = "FoodType updated successfully";
+            TempData["success"] = "FoodType deleted successfully";
             return RedirectToPage("Index");
+
         }
+
         return Page();
     }
 }
