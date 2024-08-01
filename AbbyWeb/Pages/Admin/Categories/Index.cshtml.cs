@@ -1,4 +1,4 @@
-﻿using Abby.DataAccess.Data;
+﻿using Abby.DataAccess.Repository.IRepository;
 using Abby.Models.Model;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
@@ -7,15 +7,17 @@ namespace AbbyWeb.Pages.Admin.Categories;
 
 public class IndexModel : PageModel
 {
-    private readonly ApplicationDbContext _db;
+    private readonly ICategoryRepository _dbCategory;
+
     public IEnumerable<Category> Categories { get; set; }
-    public IndexModel(ApplicationDbContext db)
+
+    public IndexModel(ICategoryRepository dbCategory)
     {
-        _db = db;
+        _dbCategory = dbCategory;
     }
 
     public void OnGet()
     {
-        Categories = _db.Category;
+        Categories = _dbCategory.GetAll();
     }
 }
