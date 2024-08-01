@@ -1,0 +1,21 @@
+﻿using Abby.DataAccess.Data;
+using Abby.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+
+namespace AbbyWeb.Pages.Admin.FoodTypes;
+
+public class IndexModel : PageModel
+{
+    private readonly ApplicationDbContext _db;
+    public IEnumerable<FoodType> FoodTypes { get; set; }
+    public IndexModel(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+
+    public void OnGet()
+    {
+        FoodTypes = _db.FoodType;
+    }
+}
