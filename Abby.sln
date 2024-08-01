@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbbyWeb", "AbbyWeb\AbbyWeb.csproj", "{E1FD09BF-073E-49C5-A061-D41F9BADEFFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abby.Data", "Abby.Data\Abby.Data.csproj", "{D9952812-FE60-4D7B-AF5B-243D3E532DCB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E1FD09BF-073E-49C5-A061-D41F9BADEFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1FD09BF-073E-49C5-A061-D41F9BADEFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1FD09BF-073E-49C5-A061-D41F9BADEFFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9952812-FE60-4D7B-AF5B-243D3E532DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9952812-FE60-4D7B-AF5B-243D3E532DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9952812-FE60-4D7B-AF5B-243D3E532DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9952812-FE60-4D7B-AF5B-243D3E532DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
