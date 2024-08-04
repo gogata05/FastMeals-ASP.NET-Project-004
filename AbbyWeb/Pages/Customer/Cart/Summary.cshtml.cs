@@ -2,6 +2,7 @@ using Abby.DataAccess.Repository.IRepository;
 using Abby.Models;
 using Abby.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Security.Claims;
 namespace AbbyWeb.Pages.Customer.Cart
 {
 	[Authorize]
+	[BindProperties]
 	public class SummaryModel : PageModel
 	{
 		public IEnumerable<ShoppingCart> ShoppingCartList { get; set; }
@@ -61,7 +63,22 @@ namespace AbbyWeb.Pages.Customer.Cart
 				_unitOfWork.OrderHeader.Add(OrderHeader);
 				_unitOfWork.Save();
 
+				foreach (var item in ShoppingCartList)
+				{
+					OrderDetails orderDetails = new()
+					{
+						MenuItemId = item.MenuItemId,
+						OrderId = OrderHeader.Id,
+						Name = item.MenuItem.Name,
+						Price = item.MenuItem.Price,
+						Count = item.Count
+					};
+					_unitOfWork.OrderDetail.Add(orderDetails);
+					_unitOfWork.Save();
+				}
 
+				_unitOfWork.ShoppingCart.RemoveRange(ShoppingCartList);
+				_unitOfWork.Save();
 			}
 		}
 	}
