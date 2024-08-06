@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Stripe.Checkout;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 
 namespace AbbyWeb.Pages.Customer.Cart
@@ -78,8 +77,8 @@ namespace AbbyWeb.Pages.Customer.Cart
 					_unitOfWork.OrderDetail.Add(orderDetails);
 
 				}
-				int quantity = ShoppingCartList.ToList().Count;
-				_unitOfWork.ShoppingCart.RemoveRange(ShoppingCartList);
+
+				//_unitOfWork.ShoppingCart.RemoveRange(ShoppingCartList);
 				_unitOfWork.Save();
 
 
@@ -125,6 +124,7 @@ namespace AbbyWeb.Pages.Customer.Cart
 
 				OrderHeader.SessionId = session.Id;
 				OrderHeader.PaymentIntentId = session.PaymentIntentId;
+				_unitOfWork.Save();
 				return new StatusCodeResult(303);
 			}
 
