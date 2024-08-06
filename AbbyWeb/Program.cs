@@ -1,3 +1,4 @@
+
 using Abby.DataAccess.Data;
 using Abby.DataAccess.Repository;
 using Abby.DataAccess.Repository.IRepository;
@@ -9,14 +10,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-	builder.Configuration.GetConnectionString("DefaultConnection")
-));
+		builder.Configuration.GetConnectionString("DefaultConnection")
+	));
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 	.AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
@@ -46,6 +48,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+string key = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+StripeConfiguration.ApiKey = key;
 app.UseAuthentication();
 
 app.UseAuthorization();
