@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AbbyWeb.Pages.Order
+namespace AbbyWeb.Pages.Admin.Order
 {
     [Authorize]
     public class OrderListModel : PageModel
