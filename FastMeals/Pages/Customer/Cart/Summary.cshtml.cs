@@ -82,7 +82,7 @@ namespace FastMealsWeb.Pages.Customer.Cart
                 _unitOfWork.Save();
 
 
-                var domain = "https://localhost:44322/";
+                var domain = "https://localhost:5001/";
                 var options = new SessionCreateOptions
                 {
                     LineItems = new List<SessionLineItemOptions>()

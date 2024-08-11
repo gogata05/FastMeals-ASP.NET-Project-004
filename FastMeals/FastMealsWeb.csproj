@@ -30,6 +30,7 @@
 
 	<ItemGroup>
 		<Folder Include="wwwroot\images\menuItems\" />
+		<Folder Include="wwwroot\images\githubImages\" />
 	</ItemGroup>
 
 </Project>

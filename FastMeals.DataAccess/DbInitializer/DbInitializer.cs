@@ -43,14 +43,14 @@ namespace FastMeals.DataAccess.DbInitializer
 
                 _userManager.CreateAsync(new ApplicationUser
                 {
-                    UserName = "admin@dotnetmastery.com",
-                    Email = "admin@dotnetmastery.com",
+                    UserName = "admin@gmail.com",
+                    Email = "admin@gmail.com",
                     EmailConfirmed = true,
-                    FirstName = "Bhrugen",
-                    LastName = "Patel"
+                    FirstName = "Georgi",
+                    LastName = "Markov"
                 }, "Admin123*").GetAwaiter().GetResult();
 
-                ApplicationUser user = _db.ApplicationUser.FirstOrDefault(u => u.Email == "admin@dotnetmastery.com");
+                ApplicationUser user = _db.ApplicationUser.FirstOrDefault(u => u.Email == "admin@gmail.com");
 
                 _userManager.AddToRoleAsync(user, SD.ManagerRole).GetAwaiter().GetResult();
 
