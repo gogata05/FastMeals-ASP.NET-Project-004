@@ -124,8 +124,8 @@ Profile:
 
 Register:
 
-![image](/FastMeals/wwwroot/images/githubImages)
+![image](/FastMeals/wwwroot/images/githubImages/register.png)
 
 Login:
 
-![image](/FastMeals/wwwroot/images/githubImages)
+![image](/FastMeals/wwwroot/images/githubImages/login.png)
