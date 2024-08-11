@@ -70,6 +70,10 @@ Home 2:
 
 ![image](/FastMeals/wwwroot/images/githubImages/Home2.png)
 
+Admin panel:
+
+![image](/FastMeals/wwwroot/images/githubImages/Admin%20panel.png)
+
 Admin panel - CategoryList:
 
 ![image](/FastMeals/wwwroot/images/githubImages/Admin%20panel%20-%20CategoryList.png)
